@@ -1,6 +1,6 @@
 # bokchoy
 
-scrape meta and [json-ld](https://json-ld.org) data from [online recipes](https://schema.org/Recipe)
+scrape metadata and [json-ld](https://json-ld.org) from [online recipes](https://schema.org/Recipe)
 
 ## Available Scripts
 
