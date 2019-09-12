@@ -36,7 +36,7 @@ class RecipeScraper extends Component {
     metadata: null,
     jsonld: null,
     message: null,
-    url: 'https://www.allrecipes.com/recipe/8941/slow-cooker-chicken-and-dumplings'
+    url: 'https://www.bonappetit.com/recipe/slow-roast-gochujang-chicken'
   }
 
   state = this.stateInit
