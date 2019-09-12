@@ -1,4 +1,4 @@
-import React, { Component, useEffect } from 'react'
+import React, { Component } from 'react'
 import styled from 'styled-components'
 import ReactJson from 'react-json-view'
 
