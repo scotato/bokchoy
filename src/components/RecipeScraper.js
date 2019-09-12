@@ -101,10 +101,10 @@ class RecipeScraper extends Component {
         
         {hasData && (
           <>
-            <h3>meta data</h3>
+            <h3>metadata</h3>
             <ReactJson src={this.state.metadata} />
             <br />
-            <h3>json-ld data</h3>
+            <h3>json-ld</h3>
             <ReactJson src={this.state.jsonld} />
           </>
         )}
