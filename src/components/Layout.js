@@ -8,7 +8,7 @@ const Layout = styled.div`
   padding: 64px;
   flex-direction: column;
   max-width: 1024px;
-  height: 100%;
+  min-height: 100vh;
 `
 
 const Main = styled.main`
@@ -17,6 +17,7 @@ const Main = styled.main`
 
 const Footer = styled.footer`
   display: flex;
+  margin-top: 64px;
   justify-content: space-between;
 `
 

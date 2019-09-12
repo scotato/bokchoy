@@ -81,30 +81,37 @@ class RecipeScraper extends Component {
     this.handleSubmit()
   }
 
-  render = () => (
-    <form onSubmit={this.handleSubmit}>
-      <RecipeScraperSearch>
-        <RecipeScraperInput
-          placeholder="url"
-          value={this.state.url}
-          onChange={e => this.setState({ url: e.target.value })}
-          required
-        />
+  render = () => {
+    const hasData = this.state.metadata || this.state.jsonld
 
-        <RecipeScraperButton type='submit' disabled={this.state.isLoading}>
-          get data
-        </RecipeScraperButton>
-      </RecipeScraperSearch>
-      
-      { (this.state.metadata || this.state.jsonld) && (
-          <div>
+    return (
+      <form onSubmit={this.handleSubmit}>
+        <RecipeScraperSearch>
+          <RecipeScraperInput
+            placeholder="url"
+            value={this.state.url}
+            onChange={e => this.setState({ url: e.target.value })}
+            required
+          />
+  
+          <RecipeScraperButton type='submit' disabled={this.state.isLoading}>
+            get data
+          </RecipeScraperButton>
+        </RecipeScraperSearch>
+        
+        {hasData && (
+          <>
+            <h3>meta data</h3>
             <ReactJson src={this.state.metadata} />
+            <br />
+            <h3>json-ld data</h3>
             <ReactJson src={this.state.jsonld} />
-          </div>
-      )}
-      {this.state.message && <p>{this.state.message}</p>}
-    </form>
-  )
+          </>
+        )}
+        {this.state.message && <p>{this.state.message}</p>}
+      </form>
+    )
+  }
 }
 
 export default RecipeScraper
