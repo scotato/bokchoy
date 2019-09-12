@@ -9,6 +9,10 @@ const Layout = styled.div`
   flex-direction: column;
   max-width: 1024px;
   min-height: 100vh;
+
+  @media (max-width: 768px) {
+    padding: 16px;
+  }
 `
 
 const Main = styled.main`

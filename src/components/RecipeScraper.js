@@ -5,6 +5,10 @@ import ReactJson from 'react-json-view'
 const RecipeScraperSearch = styled.div`
   display: flex;
   margin-bottom: 32px;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
 `
 
 const RecipeScraperInput = styled.input`
@@ -13,6 +17,10 @@ const RecipeScraperInput = styled.input`
   border-radius: 64px;
   border: 1px solid rgba(0, 0, 0, 0.1);
   margin-right: 16px;
+
+  @media (max-width: 768px) {
+    margin-bottom: 16px;
+  }
 `
 
 const RecipeScraperButton = styled.button`
