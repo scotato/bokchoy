@@ -3,6 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "cheerio": "1.0.0-rc.3",
+    "got": "9.6.0",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
     "react-json-view": "1.19.1",
@@ -11,10 +13,15 @@
     "styled-reboot": "4.0.3"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
+    "start": "run-p start:**",
+    "start:app": "react-scripts start",
+    "start:lambda": "netlify-lambda serve src/lambda",
+    "build": "run-p build:**",
+    "build:app": "react-scripts build",
+    "build:lambda": "netlify-lambda build src/lambda",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "clean": "rimraf public build"
   },
   "eslintConfig": {
     "extends": "react-app"
