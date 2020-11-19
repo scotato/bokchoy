@@ -1,4 +1,5 @@
 import * as React from "react"
+import { Recipe } from 'schema-dts'
 
 const IS_DEV = window.location.hostname === "localhost";
 const DEV_SCRAPER = "http://localhost:9000/recipe-scraper"
@@ -8,6 +9,7 @@ const SCRAPER = IS_DEV ? DEV_SCRAPER : PROD_SCRAPER
 type RecipeResponse = {
   metadata: object
   jsonld: object
+  recipe: [Recipe]
 }
 
 type RecipeState = {
@@ -44,7 +46,8 @@ export function useRecipe(
           error: json.status !== 200 ? json.status : null,
           data: {
             metadata: json.metadata,
-            jsonld: json.jsonld
+            jsonld: json.jsonld,
+            recipe: json.jsonld
           }
         })
       })

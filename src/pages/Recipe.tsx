@@ -1,5 +1,5 @@
 import * as React from "react"
-import { Grid, Spinner } from "@chakra-ui/react"
+import { Grid, Code, Box, Text, Spinner } from "@chakra-ui/react"
 import { WarningIcon } from "@chakra-ui/icons"
 import { useRecipe } from "../hooks/use-recipe"
 
@@ -18,8 +18,20 @@ export const Recipe = () => {
 
   return (
     <Grid minH="100vh" p={9}>
-      {JSON.stringify(data?.metadata)}
-      {JSON.stringify(data?.jsonld)}
+      {data?.recipe?.map(recipe => {
+        return (
+          <Box>
+            <Text>{JSON.stringify(recipe.keywords, null, 2)}</Text>
+          </Box>      
+        )
+      })}
+
+      <Code p={9}>
+        <pre>
+          {JSON.stringify(data?.recipe, null, 2)}
+          {JSON.stringify(data?.metadata, null, 2)}
+        </pre>
+      </Code>
     </Grid>
   )
   
