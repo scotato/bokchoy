@@ -21,11 +21,13 @@ export const Recipe = () => {
     </MainLayout>
   )
 
+  console.log(data)
+
   return (
     <MainLayout>
-      {data?.recipe?.map(recipe => {
+      {data?.recipe?.map((recipe, i) => {
         return (
-          <Box mb={9}>
+          <Box mb={9} key={i}>
             <Text>{JSON.stringify(recipe.keywords, null, 2)}</Text>
           </Box>      
         )

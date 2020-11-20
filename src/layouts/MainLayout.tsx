@@ -1,6 +1,6 @@
 import * as React from "react"
 import { Link } from "react-router-dom"
-import { Flex, HStack, Button, Grid, Box } from "@chakra-ui/react"
+import { Flex, HStack, Button, Grid } from "@chakra-ui/react"
 import { ColorModeSwitcher } from '../components/ColorModeSwitcher'
 import { Logo } from '../components/Logo'
 
