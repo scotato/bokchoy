@@ -8,7 +8,11 @@ const DEMO_RECIPE = "https://www.bonappetit.com/recipe/slow-roast-gochujang-chic
 export const Recipe = () => {
   const { data, loading, error } = useRecipe(DEMO_RECIPE)
   
-  if (error) return <WarningIcon />
+  if (error) return (
+    <Grid minH="100vh">
+      <WarningIcon />
+    </Grid>
+  )
   
   if (loading) return (
     <Grid minH="100vh">
@@ -34,5 +38,4 @@ export const Recipe = () => {
       </Code>
     </Grid>
   )
-  
 }
