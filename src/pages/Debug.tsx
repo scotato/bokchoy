@@ -1,9 +1,10 @@
 import * as React from "react"
-import { Text, Link, Grid } from "@chakra-ui/react"
+import { Text, Link } from "@chakra-ui/react"
 import { RecipeScraper } from "../components/RecipeScraper"
+import { MainLayout } from "../layouts/MainLayout"
 
 export const Debug = () => (
-  <Grid minH="100vh" p={9}>
+  <MainLayout>
     <RecipeScraper />
     <Text textAlign="center" fontSize="xl" alignSelf="flex-end">
       scrape metadata and <Link
@@ -22,5 +23,5 @@ export const Debug = () => (
         online recipes
       </Link>
     </Text>
-  </Grid>
+  </MainLayout>
 )

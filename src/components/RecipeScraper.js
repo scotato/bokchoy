@@ -57,7 +57,7 @@ export const RecipeScraper = () => {
       </HStack>
 
       {data && (
-        <Box marginTop={9}>
+        <Box marginTop={9} overflowX="scroll">
           <h3>metadata</h3>
           <ReactJson src={data.metadata} />
           <br />
