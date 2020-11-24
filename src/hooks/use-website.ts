@@ -19,7 +19,7 @@ const initialState: WebsiteState = {
  */
 export function useWebsite<WebsiteNode>(url: string) {
   const [state, setState] = React.useState<WebsiteState>(initialState)
-  const { websiteByUrl, hashUrl, storeWebsite } = useWebsites()
+  const { websiteByUrl, addWebsite } = useWebsites()
 
   React.useEffect(() => {
     const website = websiteByUrl(url)
@@ -37,20 +37,18 @@ export function useWebsite<WebsiteNode>(url: string) {
       })
         .then((response) => response.json())
         .then(({ graph, metadata, status }) => {
-          const website = {
-            id: hashUrl(url),
+          const websiteInput = {
             url,
-            createdAt: new Date(),
             graph,
             metadata
           }
 
-          storeWebsite(website)
+          const websiteAdded = addWebsite(websiteInput)
 
           setState({
             loading: false,
             error: status !== 200 ? status : null,
-            data: website
+            data: websiteAdded
           })
         })
         .catch((err) => {

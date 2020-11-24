@@ -34,4 +34,9 @@ declare global {
     graph?: SchemaGraph
     metadata?: object
   }
+  declare interface WebsiteNodeInput {
+    url: string
+    graph?: SchemaGraph
+    metadata?: object
+  }
 }

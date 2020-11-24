@@ -12,23 +12,48 @@ export const useWebsites = () => {
 
   const websiteById = (id: string) => websites.find(website => website.id === id)
   const websiteByUrl = (url: string) => websites.find(website => website.url === url)
-  const storeWebsite = (website: WebsiteNode) => {
-    const websiteOriginal = websiteById(website.id)
-    const websiteRecord = websiteOriginal ? {
-      ...website,
-      updatedAt: new Date()
-    } : {
-      ...website
+
+  const addWebsite = (websiteInput: WebsiteNodeInput) => {
+    const website = websiteByUrl(websiteInput.url)
+
+    if (website) return website
+
+    const newWebsite: WebsiteNode = {
+      id: hashUrl(websiteInput.url),
+      createdAt: new Date(),
+      ...websiteInput
     }
 
-    setWebsites([...websites, websiteRecord])
+    setWebsites([...websites, newWebsite])
+
+    return newWebsite
+  }
+
+  const updateWebsite = (websiteInput: WebsiteNodeInput) => {
+    const website = websiteByUrl(websiteInput.url)
+
+    if (!website) return website
+
+    const websiteUpdated = {
+      ...website,
+      ...websiteInput,
+      updatedAt: new Date()
+    }
+
+    const updatedWebsites = websites.map(site =>
+      site.url === website.url ? websiteUpdated : site)
+
+    setWebsites(updatedWebsites)
+
+    return websiteUpdated
   }
 
   return {
     websites,
     websiteById,
     websiteByUrl,
+    addWebsite,
+    updateWebsite,
     hashUrl,
-    storeWebsite
   }
 }
