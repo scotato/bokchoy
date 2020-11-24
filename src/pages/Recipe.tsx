@@ -2,14 +2,14 @@ import * as React from 'react'
 import { Code, Box, Text, Spinner } from '@chakra-ui/react'
 import { WarningIcon } from '@chakra-ui/icons'
 import { MainLayout } from '../layouts/MainLayout'
-import { useRecipe } from '../hooks/use-recipe'
+import { useWebsite } from '../hooks/use-website'
 
 const DEMO_RECIPE =
-  'https://www.bonappetit.com/recipe/slow-roast-gochujang-chicken'
-// 'https://domesticate-me.com/crispy-orange-chicken-with-lemon-ginger-broccoli-rice/'
+  // 'https://www.bonappetit.com/recipe/slow-roast-gochujang-chicken'
+  'https://domesticate-me.com/crispy-orange-chicken-with-lemon-ginger-broccoli-rice/'
 
 export const Recipe = () => {
-  const { data, loading, error } = useRecipe(DEMO_RECIPE)
+  const { data, loading, error } = useWebsite(DEMO_RECIPE)
 
   const {
     alternativeHeadline,
@@ -29,7 +29,7 @@ export const Recipe = () => {
     recipeInstructions,
     recipeYield,
     ...rest
-  } = data?.recipe ?? {}
+  } = data?.graph?.recipe ?? {}
 
   console.log(data, rest)
 
@@ -99,12 +99,12 @@ export const Recipe = () => {
         <Text>{JSON.stringify(recipeYield, null, 2)}</Text>
       </Box>
 
-      {/* <Code p={7} borderRadius={5} overflowX="scroll"> */}
-      {/* <pre> */}
-      {/* {JSON.stringify(data?.recipe, null, 2)} */}
-      {/* {JSON.stringify(data?.metadata, null, 2)} */}
-      {/* </pre> */}
-      {/* </Code> */}
+      <Code p={7} borderRadius={5} overflowX="scroll">
+        <pre>
+          {JSON.stringify(data?.graph, null, 2)}
+          {JSON.stringify(data?.metadata, null, 2)}
+        </pre>
+      </Code>
     </MainLayout>
   )
 }

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState } from 'react'
 import {
   Box,
   HStack,
@@ -7,21 +7,22 @@ import {
   InputLeftElement,
   Button,
   Spinner,
-} from "@chakra-ui/react";
-import { LinkIcon } from "@chakra-ui/icons";
-import ReactJson from "react-json-view";
-import { useRecipe } from "../hooks/use-recipe";
+} from '@chakra-ui/react'
+import { LinkIcon } from '@chakra-ui/icons'
+import ReactJson from 'react-json-view'
+import { useWebsite } from '../hooks/use-website'
 
 const DEMO_RECIPE =
-  "https://www.bonappetit.com/recipe/slow-roast-gochujang-chicken";
+  // 'https://domesticate-me.com/crispy-orange-chicken-with-lemon-ginger-broccoli-rice/'
+  'https://www.bonappetit.com/recipe/slow-roast-gochujang-chicken'
 
 export const RecipeScraper = () => {
-  const [{ url }, setState] = useState({ url: DEMO_RECIPE });
-  const { data, loading } = useRecipe(url);
+  const [{ url }, setState] = useState({ url: DEMO_RECIPE })
+  const { data, loading } = useWebsite(url)
 
   const handleSubmit = (e) => {
-    setState({ url: e.target.value });
-  };
+    setState({ url: e.target.value })
+  }
 
   return (
     <form onSubmit={handleSubmit}>
@@ -51,7 +52,7 @@ export const RecipeScraper = () => {
           get data
         </Button>
 
-        <Button size="lg" onClick={() => setState({ url: "" })}>
+        <Button size="lg" onClick={() => setState({ url: '' })}>
           clear
         </Button>
       </HStack>
@@ -66,5 +67,5 @@ export const RecipeScraper = () => {
         </Box>
       )}
     </form>
-  );
-};
+  )
+}
