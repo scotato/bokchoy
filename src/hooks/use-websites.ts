@@ -2,7 +2,7 @@ import createPersistedState from 'use-persisted-state'
 import hash from 'hash.js'
 
 function hashUrl<UrlHash>(url: string) {
-  return hash.sha512().update(url).digest('hex')
+  return hash.sha256().update(url).digest('hex')
 }
 
 const useWebsitesState = createPersistedState('websites')
