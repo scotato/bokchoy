@@ -2537,6 +2537,13 @@
   resolved "https://registry.yarnpkg.com/@types/tinycolor2/-/tinycolor2-1.4.2.tgz#721ca5c5d1a2988b4a886e35c2ffc5735b6afbdf"
   integrity sha512-PeHg/AtdW6aaIO2a+98Xj7rWY4KC1E6yOy7AFknJQ7VXUGNrMlyxDFxJo7HqLtjQms/ZhhQX52mLVW/EX3JGOw==
 
+"@types/use-persisted-state@^0.3.0":
+  version "0.3.0"
+  resolved "https://registry.yarnpkg.com/@types/use-persisted-state/-/use-persisted-state-0.3.0.tgz#23370e89bd6c8468afdb05dde2d1bab898128229"
+  integrity sha512-ZT98QuckR95qM7W97lGVqc7fFS9TT6f3txp7R40fl0zxa5BLm3GG7j0i51G12h8DkoJxFAf2oQyYKU99h0pxFA==
+  dependencies:
+    "@types/react" "*"
+
 "@types/warning@^3.0.0":
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/@types/warning/-/warning-3.0.0.tgz#0d2501268ad8f9962b740d387c4654f5f8e23e52"
@@ -2603,6 +2610,11 @@
     lodash "^4.17.15"
     semver "^7.3.2"
     tsutils "^3.17.1"
+
+"@use-it/event-listener@^0.1.2":
+  version "0.1.6"
+  resolved "https://registry.yarnpkg.com/@use-it/event-listener/-/event-listener-0.1.6.tgz#5776274fec72f3f25af9ead1898e7f45bc435812"
+  integrity sha512-e6V7vbU8xpuqy4GZkTLExHffOFgxmGHo3kNWnlhzM/zcX2v+idbD/HaJ9sKdQMgTh+L7MIhdRDXGX3SdAViZzA==
 
 "@webassemblyjs/ast@1.8.5":
   version "1.8.5"
@@ -6420,7 +6432,7 @@ hash-base@^3.0.0:
     readable-stream "^3.6.0"
     safe-buffer "^5.2.0"
 
-hash.js@^1.0.0, hash.js@^1.0.3:
+hash.js@^1.0.0, hash.js@^1.0.3, hash.js@^1.1.7:
   version "1.1.7"
   resolved "https://registry.yarnpkg.com/hash.js/-/hash.js-1.1.7.tgz#0babca538e8d4ee4a0f8988d68866537a003cf42"
   integrity sha512-taOaskGt4z4SOANNseOviYDvjEJinIkRgmp7LbKP2YTTmVxWBl87s/uzK9r+44BclBSp2X7K1hqeNfz9JbBeXA==
@@ -12175,6 +12187,13 @@ use-callback-ref@^1.2.1, use-callback-ref@^1.2.3:
   version "1.2.4"
   resolved "https://registry.yarnpkg.com/use-callback-ref/-/use-callback-ref-1.2.4.tgz#d86d1577bfd0b955b6e04aaf5971025f406bea3c"
   integrity sha512-rXpsyvOnqdScyied4Uglsp14qzag1JIemLeTWGKbwpotWht57hbP78aNT+Q4wdFKQfQibbUX4fb6Qb4y11aVOQ==
+
+use-persisted-state@^0.3.3:
+  version "0.3.3"
+  resolved "https://registry.yarnpkg.com/use-persisted-state/-/use-persisted-state-0.3.3.tgz#5e0f2236967cec7c34de33abc07ae6818e7c7451"
+  integrity sha512-pCNlvYC8+XjRxwnIut4teGC9f2p9aD88R8OGseQGZa2dvqG/h1vEGk1vRE1IZG0Vf161UDpn+NlW4+UGubQflQ==
+  dependencies:
+    "@use-it/event-listener" "^0.1.2"
 
 use-sidecar@^1.0.1:
   version "1.0.3"
