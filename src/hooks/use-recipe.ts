@@ -1,19 +1,27 @@
 import * as React from "react"
-import { Recipe } from 'schema-dts'
+import { Recipe, Person, Article, WebPage, ImageObject, WebSite, Organization, HowToSection, HowToStep, NutritionInformation } from 'schema-dts'
 
 const IS_DEV = window.location.hostname === "localhost";
 const DEV_SCRAPER = "http://localhost:9000/recipe-scraper"
 const PROD_SCRAPER = "/.netlify/functions/recipe-scraper"
 const SCRAPER = IS_DEV ? DEV_SCRAPER : PROD_SCRAPER
 
-type RecipeResponse = {
-  metadata: object
-  jsonld: object
-  recipe: [Recipe]
+type Graph = {
+  organization: Organization
+  website: WebSite
+  webpage: WebPage
+  article: Article
+  recipe: Recipe
+  howToSection: HowToSection
+  howToStep: HowToStep
+  nutritionInformation: NutritionInformation
+  // author: Author
+  person: Person
+  imageObject: ImageObject
 }
 
 type RecipeState = {
-  data?: RecipeResponse
+  data?: Graph
   loading: boolean
   error?: string
 }
@@ -41,14 +49,12 @@ export function useRecipe(
     })
       .then((response) => response.json())
       .then((json) => {
+        console.log(json)
+
         setState({
           loading: false,
           error: json.status !== 200 ? json.status : null,
-          data: {
-            metadata: json.metadata,
-            jsonld: json.jsonld,
-            recipe: json.jsonld
-          }
+          data: json?.graph
         })
       })
       .catch((err) => {
