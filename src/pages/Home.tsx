@@ -11,7 +11,9 @@ export const Home = () => {
       <Box>
         {websites.map((website) => (
           <Link to={website.id} key={website.id}>
-            <Text>{website?.graph?.recipe?.name ?? website.url}</Text>
+            <Text fontSize={20} mb={4}>
+              {website?.graph?.recipe?.name ?? website.url}
+            </Text>
           </Link>
         ))}
       </Box>

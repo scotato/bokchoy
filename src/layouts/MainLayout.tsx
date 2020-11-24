@@ -9,7 +9,14 @@ interface MainLayoutProps {
 }
 
 export const MainLayout = (props: MainLayoutProps) => (
-  <Grid minH="100vh" maxW="100vw" templateRows="auto 1fr" p={9}>
+  <Grid
+    minH="100vh"
+    width="100%"
+    maxW="960px"
+    margin="0 auto"
+    templateRows="auto 1fr"
+    p={9}
+  >
     <Flex spacing={5} mb={9} alignItems="center">
       <HStack>
         <Link to="/">
