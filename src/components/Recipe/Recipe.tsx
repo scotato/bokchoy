@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Box, VStack, Text } from '@chakra-ui/react'
+import { VStack } from '@chakra-ui/react'
 import {
   Recipe as SchemaRecipe,
   AggregateRating,
@@ -21,30 +21,21 @@ interface RecipeProps {
 
 export const Recipe = (props: RecipeProps) => {
   const { recipe, webpage } = props
-  const {
-    keywords,
-    thumbnailUrl,
-    publisher,
-    isPartOf,
-    isAccessibleForFree,
-    author,
-    image,
-    name,
-    mainEntityOfPage,
-    recipeCategory,
-  } = recipe
 
   const ingredients = recipe.recipeIngredient as PronounceableText[]
   const instructions = recipe.recipeInstructions as HowToStep[]
   const headlineRecipe = recipe.alternativeHeadline as string
   const descriptionRecipe = recipe.description as string
   const descriptionWebpage = webpage?.description as string
-  const title = name as string
+  const title = recipe.name as string
+  const thumbnailUrl = recipe.thumbnailUrl as string
+  const imageUrl = Array.isArray(recipe.image) ? recipe.image[0] : recipe.image
+  const image = imageUrl || thumbnailUrl
   const subtitle = descriptionRecipe || headlineRecipe || descriptionWebpage
 
   return (
     <VStack alignItems="flex-start" spacing={4}>
-      <RecipeHeader title={title} subtitle={subtitle} />
+      <RecipeHeader title={title} subtitle={subtitle} image={image} />
       <RecipeDetails
         datePublished={recipe.datePublished as string}
         dateModified={recipe.dateModified as string}
@@ -57,16 +48,10 @@ export const Recipe = (props: RecipeProps) => {
       <RecipeIngredients ingredients={ingredients} />
       <RecipeInstructions instructions={instructions} />
 
-      <Box>
+      {/* <Box>
         <Text fontWeight="bold">keywords</Text>
         <Text>{JSON.stringify(keywords, null, 2)}</Text>
       </Box>
-
-      <Box>
-        <Text fontWeight="bold">thumbnailUrl</Text>
-        <Text>{JSON.stringify(thumbnailUrl, null, 2)}</Text>
-      </Box>
-
       <Box>
         <Text fontWeight="bold">publisher</Text>
         <Text>{JSON.stringify(publisher, null, 2)}</Text>
@@ -98,7 +83,7 @@ export const Recipe = (props: RecipeProps) => {
       <Box>
         <Text fontWeight="bold">recipeCategory</Text>
         <Text>{JSON.stringify(recipeCategory, null, 2)}</Text>
-      </Box>
+      </Box> */}
     </VStack>
   )
 }
