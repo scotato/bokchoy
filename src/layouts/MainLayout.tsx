@@ -20,7 +20,7 @@ export const MainLayout = (props: MainLayoutProps) => (
     <Flex spacing={5} mb={9} alignItems="center">
       <HStack>
         <Link to="/">
-          <Logo w="64px" h="64px" alt="bokchoy" />
+          <Logo w="48px" h="48px" alt="bokchoy" />
         </Link>
       </HStack>
       <ColorModeSwitcher ml="auto" />

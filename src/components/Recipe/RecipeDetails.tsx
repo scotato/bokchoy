@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { HStack, Tag, TagLabel, TagLeftIcon } from '@chakra-ui/react'
+import { Wrap, WrapItem, Tag, TagLabel, TagLeftIcon } from '@chakra-ui/react'
 import { AddIcon, CalendarIcon, TimeIcon, StarIcon } from '@chakra-ui/icons'
 import { AggregateRating } from 'schema-dts'
 
@@ -39,38 +39,46 @@ export const RecipeDetails = (props: RecipeDetailsProps) => {
   if (totalTime) times.push(`Total: ${formatTime(totalTime)}`)
 
   return (
-    <HStack>
+    <Wrap>
       {rating > 0 ? (
-        <Tag colorScheme="yellow">
-          <TagLeftIcon as={StarIcon} />
-          <TagLabel>
-            {Math.round(rating * 10) / 10}{' '}
-            {ratingCount ? `(${ratingCount})` : null}
-          </TagLabel>
-        </Tag>
+        <WrapItem>
+          <Tag colorScheme="yellow">
+            <TagLeftIcon as={StarIcon} />
+            <TagLabel>
+              {Math.round(rating * 10) / 10}{' '}
+              {ratingCount ? `(${ratingCount})` : null}
+            </TagLabel>
+          </Tag>
+        </WrapItem>
       ) : null}
 
       {date ? (
-        <Tag colorScheme="orange">
-          <TagLeftIcon as={CalendarIcon} />
-          <TagLabel>{date}</TagLabel>
-        </Tag>
+        <WrapItem>
+          <Tag colorScheme="orange">
+            <TagLeftIcon as={CalendarIcon} />
+            <TagLabel>{date}</TagLabel>
+          </Tag>
+        </WrapItem>
       ) : null}
 
       {times.length ? (
-        <Tag colorScheme="pink">
-          <TagLeftIcon as={TimeIcon} />
-          <TagLabel>{times.join(', ')}</TagLabel>
-        </Tag>
+        <WrapItem>
+          <Tag colorScheme="pink">
+            <TagLeftIcon as={TimeIcon} />
+            <TagLabel>{times.join(', ')}</TagLabel>
+          </Tag>
+        </WrapItem>
       ) : null}
 
       {yieldString ? (
-        <Tag colorScheme="purple">
-          <TagLeftIcon as={AddIcon} />
-          <TagLabel>{yieldString}</TagLabel>
-        </Tag>
+        <WrapItem>
+          <Tag colorScheme="purple">
+            <TagLeftIcon as={AddIcon} />
+            <TagLabel>{yieldString}</TagLabel>
+          </Tag>
+        </WrapItem>
       ) : null}
-    </HStack>
+    </Wrap>
   )
 }
 

@@ -8,7 +8,7 @@ import {
   HowToStep,
 } from 'schema-dts'
 import {
-  RecipeHeader,
+  RecipeCard,
   RecipeDetails,
   RecipeIngredients,
   RecipeInstructions,
@@ -34,17 +34,18 @@ export const Recipe = (props: RecipeProps) => {
   const subtitle = descriptionRecipe || headlineRecipe || descriptionWebpage
 
   return (
-    <VStack alignItems="flex-start" spacing={4}>
-      <RecipeHeader title={title} subtitle={subtitle} image={image} />
-      <RecipeDetails
-        datePublished={recipe.datePublished as string}
-        dateModified={recipe.dateModified as string}
-        prepTime={recipe.prepTime as string}
-        cookTime={recipe.cookTime as string}
-        totalTime={recipe.totalTime as string}
-        aggregateRating={recipe.aggregateRating as AggregateRating}
-        recipeYield={recipe.recipeYield as string[]}
-      />
+    <VStack alignItems="flex-start" spacing={8}>
+      <RecipeCard title={title} subtitle={subtitle} image={image}>
+        <RecipeDetails
+          datePublished={recipe.datePublished as string}
+          dateModified={recipe.dateModified as string}
+          prepTime={recipe.prepTime as string}
+          cookTime={recipe.cookTime as string}
+          totalTime={recipe.totalTime as string}
+          aggregateRating={recipe.aggregateRating as AggregateRating}
+          recipeYield={recipe.recipeYield as string[]}
+        />
+      </RecipeCard>
       <RecipeIngredients ingredients={ingredients} />
       <RecipeInstructions instructions={instructions} />
 

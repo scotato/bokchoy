@@ -1,5 +1,5 @@
 export { Recipe } from './Recipe'
 export { RecipeDetails } from './RecipeDetails'
-export { RecipeHeader } from './RecipeHeader'
+export { RecipeCard } from './RecipeCard'
 export { RecipeIngredients } from './RecipeIngredients'
 export { RecipeInstructions } from './RecipeInstructions'
