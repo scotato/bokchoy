@@ -39,7 +39,7 @@ export const RecipeDetails = (props: RecipeDetailsProps) => {
   if (totalTime) times.push(`Total: ${formatTime(totalTime)}`)
 
   return (
-    <Wrap>
+    <Wrap py={2}>
       {rating > 0 ? (
         <WrapItem>
           <Tag colorScheme="yellow">

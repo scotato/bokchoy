@@ -11,8 +11,8 @@ interface MainLayoutProps {
 export const MainLayout = (props: MainLayoutProps) => (
   <Grid
     minH="100vh"
-    width="100%"
-    maxW="960px"
+    width={['100%', '100%', '100%', '100%', 'calc(100vw * 0.618)']}
+    maxWidth="1600px"
     margin="0 auto"
     templateRows="auto 1fr"
     p={9}

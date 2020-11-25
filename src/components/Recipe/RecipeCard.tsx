@@ -35,7 +35,7 @@ export const RecipeCard = (props: RecipeIngredientProps) => {
         </AspectRatio>
       ) : null}
 
-      <VStack py={6} px={8} spacing={4} alignItems="start">
+      <VStack py={6} px={8} spacing={2} alignItems="start">
         <Heading fontWeight="bold" children={title} />
         {subtitle ? (
           <Text color={color} fontSize={20} children={subtitle} />
