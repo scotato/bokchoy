@@ -4,6 +4,4 @@ import { chakra } from '@chakra-ui/react'
 
 const ChakraLink = chakra(RouterLink)
 
-export const Link = (props: LinkProps) => (
-  <ChakraLink color="blue.500" {...props} />
-)
+export const Link = (props: LinkProps) => <ChakraLink {...props} />

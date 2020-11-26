@@ -4,12 +4,12 @@ import { AddIcon, CalendarIcon, TimeIcon, StarIcon } from '@chakra-ui/icons'
 import { AggregateRating } from 'schema-dts'
 
 interface RecipeDetailsProps {
-  datePublished: string
-  dateModified: string
-  recipeYield: string[]
-  prepTime: string
-  cookTime: string
-  totalTime: string
+  datePublished?: string
+  dateModified?: string
+  recipeYield?: string[]
+  prepTime?: string
+  cookTime?: string
+  totalTime?: string
   aggregateRating?: AggregateRating
 }
 
@@ -82,7 +82,7 @@ export const RecipeDetails = (props: RecipeDetailsProps) => {
   )
 }
 
-function recipeDate(props: { published: string; modified: string }) {
+function recipeDate(props: { published?: string; modified?: string }) {
   const { published, modified } = props
   const datePublished = published && new Date(published)
   const dateModified = modified && new Date(modified)

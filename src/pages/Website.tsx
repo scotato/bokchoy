@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { useParams } from 'react-router-dom'
 import { WarningIcon } from '@chakra-ui/icons'
-import { MainLayout } from '../layouts/MainLayout'
+import { RecipeLayout } from '../layouts/RecipeLayout'
 import { useWebsites } from '../hooks/use-websites'
 import { Recipe } from '../components/Recipe'
 
@@ -17,14 +17,14 @@ export const Website = () => {
 
   if (!website)
     return (
-      <MainLayout>
+      <RecipeLayout>
         <WarningIcon />
-      </MainLayout>
+      </RecipeLayout>
     )
 
   return (
-    <MainLayout>
+    <RecipeLayout>
       {recipe ? <Recipe recipe={recipe} webpage={webpage} /> : null}
-    </MainLayout>
+    </RecipeLayout>
   )
 }
