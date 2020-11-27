@@ -26,6 +26,7 @@ export const Navigator = (props: FlexProps) => {
           justifyContent="start"
           backgroundColor={backgroundColor}
           fontSize={20}
+          fontWeight={400}
         >
           Library
         </LinkButton>
@@ -35,6 +36,7 @@ export const Navigator = (props: FlexProps) => {
           justifyContent="start"
           backgroundColor={backgroundColor}
           fontSize={20}
+          fontWeight={400}
         >
           Debug
         </LinkButton>

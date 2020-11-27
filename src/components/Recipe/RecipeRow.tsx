@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { VStack, HStack, Heading, Image, Skeleton } from '@chakra-ui/react'
+import { VStack, HStack, Text, Image, Skeleton } from '@chakra-ui/react'
 import { Recipe as SchemaRecipe, WebPage } from 'schema-dts'
 
 interface RecipeRowProps {
@@ -16,24 +16,21 @@ export const RecipeRow = (props: RecipeRowProps) => {
   const image = imageUrl || thumbnailUrl
 
   return (
-    <HStack p={4} spacing={4}>
+    <HStack p={0} spacing={4}>
       <Image
         objectPosition="center"
         objectFit="cover"
         boxSize={16}
+        width={16}
+        height={16}
         src={image}
         alt="thumbnail"
-        fallback={<Skeleton />}
+        fallback={<Skeleton width={16} height={16} />}
         borderRadius={8}
       />
 
       <VStack spacing={2} alignItems="start">
-        <Heading
-          fontSize={24}
-          fontWeight="bold"
-          lineHeight="1.2"
-          children={title}
-        />
+        <Text fontSize={24} lineHeight="1.2" children={title} />
       </VStack>
     </HStack>
   )

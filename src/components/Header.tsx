@@ -20,7 +20,7 @@ export const Header = (props: HeaderProps) => {
       borderBottomWidth={2}
     >
       <Box children={props.primary} />
-      <Heading fontSize={24}>{props.title}</Heading>
+      <Heading fontSize={20}>{props.title}</Heading>
       <Box children={props.secondary} />
     </Flex>
   )
