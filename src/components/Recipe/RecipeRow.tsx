@@ -1,6 +1,5 @@
 import * as React from 'react'
-import { VStack, Heading, Image, Skeleton, AspectRatio } from '@chakra-ui/react'
-import { Card } from '../Card'
+import { VStack, HStack, Heading, Image, Skeleton } from '@chakra-ui/react'
 import { Recipe as SchemaRecipe, WebPage } from 'schema-dts'
 
 interface RecipeRowProps {
@@ -17,18 +16,18 @@ export const RecipeRow = (props: RecipeRowProps) => {
   const image = imageUrl || thumbnailUrl
 
   return (
-    <Card>
-      <AspectRatio ratio={16 / 9}>
-        <Image
-          objectPosition="center"
-          objectFit="cover"
-          src={image}
-          alt="thumbnail"
-          fallback={<Skeleton />}
-        />
-      </AspectRatio>
+    <HStack p={4} spacing={4}>
+      <Image
+        objectPosition="center"
+        objectFit="cover"
+        boxSize={16}
+        src={image}
+        alt="thumbnail"
+        fallback={<Skeleton />}
+        borderRadius={8}
+      />
 
-      <VStack p={4} spacing={2} alignItems="start">
+      <VStack spacing={2} alignItems="start">
         <Heading
           fontSize={24}
           fontWeight="bold"
@@ -36,6 +35,6 @@ export const RecipeRow = (props: RecipeRowProps) => {
           children={title}
         />
       </VStack>
-    </Card>
+    </HStack>
   )
 }

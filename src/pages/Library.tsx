@@ -1,22 +1,19 @@
 import * as React from 'react'
+import { VStack, StackDivider, useColorModeValue } from '@chakra-ui/react'
 import { MainLayout } from '../layouts/MainLayout'
 import { useWebsites } from '../hooks/use-websites'
-import { Grid } from '@chakra-ui/react'
 import { Link } from '../components/Link'
 import { RecipeRow } from '../components/Recipe'
 
-export const Home = () => {
+export const Library = () => {
   const { websites } = useWebsites()
+  const dividerColor = useColorModeValue('gray.200', 'gray.800')
+
   return (
     <MainLayout>
-      <Grid
-        templateColumns={[
-          'repeat(1, 1fr)',
-          'repeat(1, 1fr)',
-          'repeat(2, 1fr)',
-          'repeat(3, 1fr)',
-        ]}
-        gap={8}
+      <VStack
+        align="stretch"
+        divider={<StackDivider borderWidth={1} borderColor={dividerColor} />}
       >
         {websites.map((website) => {
           return website.graph?.recipe ? (
@@ -25,7 +22,7 @@ export const Home = () => {
             </Link>
           ) : null
         })}
-      </Grid>
+      </VStack>
     </MainLayout>
   )
 }

@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { Flex, VStack, useColorModeValue } from '@chakra-ui/react'
-import { StarIcon, InfoIcon } from '@chakra-ui/icons'
+import { CopyIcon, InfoIcon } from '@chakra-ui/icons'
 import { ColorModeSwitcher } from '../components/ColorModeSwitcher'
 import { LinkButton } from '../components/LinkButton'
 
@@ -18,11 +18,11 @@ export const Navigator = () => {
       <VStack align="stretch">
         <LinkButton
           to="/"
-          leftIcon={<StarIcon color="blue.500" height={24} />}
+          leftIcon={<CopyIcon color="blue.500" height={24} />}
           justifyContent="start"
           backgroundColor={backgroundColor}
         >
-          Discover
+          Library
         </LinkButton>
         <LinkButton
           to="/debug"
