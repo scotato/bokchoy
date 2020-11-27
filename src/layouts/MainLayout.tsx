@@ -1,8 +1,6 @@
 import * as React from 'react'
-import { Flex, HStack, Grid } from '@chakra-ui/react'
-import { ColorModeSwitcher } from '../components/ColorModeSwitcher'
-import { Logo } from '../components/Logo'
-import { Link } from '../components/Link'
+import { Box, Grid } from '@chakra-ui/react'
+import { Navigator } from '../components/Navigator'
 
 interface MainLayoutProps {
   children?: React.ReactNode
@@ -15,20 +13,11 @@ export const MainLayout = (props: MainLayoutProps) => {
     <Grid
       minH="100vh"
       width="100%"
-      maxWidth="1200px"
       margin="0 auto"
-      templateRows="auto 1fr"
-      p={9}
+      templateColumns={['1fr', '1fr', '256px 1fr', '256px 1fr', '256px 1fr']}
     >
-      <Flex spacing={5} mb={9} alignItems="center">
-        <HStack>
-          <Link to="/">
-            <Logo w="48px" h="48px" alt="bokchoy" />
-          </Link>
-        </HStack>
-        <ColorModeSwitcher ml="auto" />
-      </Flex>
-      <Grid>{props.children}</Grid>
+      <Navigator />
+      <Box p={8} children={props.children} />
     </Grid>
   )
 }

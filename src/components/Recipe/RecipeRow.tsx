@@ -1,8 +1,7 @@
 import * as React from 'react'
 import { VStack, Heading, Image, Skeleton, AspectRatio } from '@chakra-ui/react'
 import { Card } from '../Card'
-import { Recipe as SchemaRecipe, AggregateRating, WebPage } from 'schema-dts'
-import { RecipeDetails } from './'
+import { Recipe as SchemaRecipe, WebPage } from 'schema-dts'
 
 interface RecipeRowProps {
   recipe: SchemaRecipe
@@ -35,15 +34,6 @@ export const RecipeRow = (props: RecipeRowProps) => {
           fontWeight="bold"
           lineHeight="1.2"
           children={title}
-        />
-        <RecipeDetails
-          datePublished={recipe.datePublished as string}
-          dateModified={recipe.dateModified as string}
-          // prepTime={recipe.prepTime as string}
-          // cookTime={recipe.cookTime as string}
-          // totalTime={recipe.totalTime as string}
-          aggregateRating={recipe.aggregateRating as AggregateRating}
-          // recipeYield={recipe.recipeYield as string[]}
         />
       </VStack>
     </Card>
