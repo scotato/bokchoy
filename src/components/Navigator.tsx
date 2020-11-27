@@ -1,11 +1,14 @@
 import * as React from 'react'
-import { Flex, VStack, useColorModeValue } from '@chakra-ui/react'
+import { Flex, FlexProps, Stack, useColorModeValue } from '@chakra-ui/react'
 import { CopyIcon, InfoIcon } from '@chakra-ui/icons'
 import { ColorModeSwitcher } from '../components/ColorModeSwitcher'
 import { LinkButton } from '../components/LinkButton'
+import { useTemplate } from '../hooks'
 
-export const Navigator = () => {
+export const Navigator = (props: FlexProps) => {
   const backgroundColor = useColorModeValue('gray.200', 'gray.800')
+  const { size } = useTemplate()
+  const stackDirection = size === 'large' ? 'column' : 'row'
 
   return (
     <Flex
@@ -14,13 +17,15 @@ export const Navigator = () => {
       bg={backgroundColor}
       paddingX={4}
       paddingY={8}
+      {...props}
     >
-      <VStack align="stretch">
+      <Stack align="stretch" justify="center" direction={stackDirection}>
         <LinkButton
-          to="/"
+          to="/library"
           leftIcon={<CopyIcon color="blue.500" height={24} />}
           justifyContent="start"
           backgroundColor={backgroundColor}
+          fontSize={20}
         >
           Library
         </LinkButton>
@@ -29,10 +34,11 @@ export const Navigator = () => {
           leftIcon={<InfoIcon color="blue.500" height={24} />}
           justifyContent="start"
           backgroundColor={backgroundColor}
+          fontSize={20}
         >
           Debug
         </LinkButton>
-      </VStack>
+      </Stack>
       <ColorModeSwitcher alignSelf="center" />
     </Flex>
   )

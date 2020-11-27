@@ -17,7 +17,7 @@ export const Library = () => {
       >
         {websites.map((website) => {
           return website.graph?.recipe ? (
-            <Link to={`/recipe/${website.id}`} key={website.id}>
+            <Link to={`/library/${website.id}`} key={website.id}>
               <RecipeRow recipe={website.graph?.recipe} />
             </Link>
           ) : null
