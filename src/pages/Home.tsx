@@ -20,7 +20,7 @@ export const Home = () => {
       >
         {websites.map((website) => {
           return website.graph?.recipe ? (
-            <Link to={website.id} key={website.id}>
+            <Link to={`/recipe/${website.id}`} key={website.id}>
               <RecipeRow recipe={website.graph?.recipe} />
             </Link>
           ) : null

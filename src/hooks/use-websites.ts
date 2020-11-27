@@ -10,8 +10,8 @@ const useWebsitesState = createPersistedState('websites')
 export const useWebsites = () => {
   const [websites, setWebsites] = useWebsitesState<WebsiteNode[]>([])
 
-  const websiteById = (id: string) => websites.find(website => website.id === id)
-  const websiteByUrl = (url: string) => websites.find(website => website.url === url)
+  const websiteById = (id?: string) => websites.find(website => website.id === id)
+  const websiteByUrl = (url?: string) => websites.find(website => website.url === url)
 
   const addWebsite = (websiteInput: WebsiteNodeInput) => {
     const website = websiteByUrl(websiteInput.url)
