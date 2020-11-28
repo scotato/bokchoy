@@ -9,7 +9,6 @@ interface RecipeRowProps {
 
 export const RecipeRow = (props: RecipeRowProps) => {
   const { recipe } = props
-
   const title = recipe.name as string
   const thumbnailUrl = recipe.thumbnailUrl as string
   const imageUrl = Array.isArray(recipe.image) ? recipe.image[0] : recipe.image

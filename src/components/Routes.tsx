@@ -8,6 +8,7 @@ import {
 } from 'react-router-dom'
 
 import { Library } from '../pages/Library'
+import { LibraryHeader } from '../pages/LibraryHeader'
 import { Recipe } from '../pages/Recipe'
 import { Debug } from '../pages/Debug'
 import { Header } from './Header'
@@ -15,7 +16,7 @@ import { Header } from './Header'
 export const HeaderRoutes = (props: BoxProps) => (
   <Box as={Router} {...props}>
     <Switch>
-      <Route exact path="/library" children={<Header title="Library" />} />
+      <Route exact path="/library" children={<LibraryHeader />} />
       <Route exact path="/library/:id" children={<Header title="Recipe" />} />
       <Route path="/debug" children={<Header title="Debug" />} />
     </Switch>

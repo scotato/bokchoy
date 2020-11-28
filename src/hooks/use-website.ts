@@ -30,7 +30,7 @@ export function useWebsite<WebsiteNode>(url: string) {
         error: undefined,
         data: website
       })
-    } else {
+    } else if (url) {
       fetch(SCRAPER, {
         method: "POST",
         body: JSON.stringify({ url }),
