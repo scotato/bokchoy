@@ -2,8 +2,24 @@ import * as React from 'react'
 import { Flex, FlexProps, Stack, useColorModeValue } from '@chakra-ui/react'
 import { CopyIcon, InfoIcon } from '@chakra-ui/icons'
 import { ColorModeSwitcher } from '../components/ColorModeSwitcher'
-import { LinkButton } from '../components/LinkButton'
+import { NavLinkButton, NavLinkButtonProps } from '../components/LinkButton'
 import { useTemplate } from '../hooks'
+
+const NavigatorButton = (props: NavLinkButtonProps) => {
+  const backgroundColor = useColorModeValue('gray.200', 'gray.800')
+
+  return (
+    <NavLinkButton
+      leftIcon={<CopyIcon color="blue.500" height={24} />}
+      justifyContent="start"
+      backgroundColor={backgroundColor}
+      fontSize={20}
+      fontWeight={400}
+      children={props.children}
+      {...props}
+    />
+  )
+}
 
 export const Navigator = (props: FlexProps) => {
   const backgroundColor = useColorModeValue('gray.200', 'gray.800')
@@ -20,26 +36,16 @@ export const Navigator = (props: FlexProps) => {
       {...props}
     >
       <Stack align="stretch" justify="center" direction={stackDirection}>
-        <LinkButton
+        <NavigatorButton
           to="/library"
           leftIcon={<CopyIcon color="blue.500" height={24} />}
-          justifyContent="start"
-          backgroundColor={backgroundColor}
-          fontSize={20}
-          fontWeight={400}
-        >
-          Library
-        </LinkButton>
-        <LinkButton
+          children="Library"
+        />
+        <NavigatorButton
           to="/debug"
           leftIcon={<InfoIcon color="blue.500" height={24} />}
-          justifyContent="start"
-          backgroundColor={backgroundColor}
-          fontSize={20}
-          fontWeight={400}
-        >
-          Debug
-        </LinkButton>
+          children="Debug"
+        />
       </Stack>
       <ColorModeSwitcher alignSelf="center" />
     </Flex>

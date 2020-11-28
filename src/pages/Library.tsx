@@ -15,13 +15,11 @@ export const Library = () => {
         align="stretch"
         divider={<StackDivider borderWidth={1} borderColor={dividerColor} />}
       >
-        {websites.map((website) => {
-          return website.graph?.recipe ? (
-            <Link to={`/library/${website.id}`} key={website.id}>
-              <RecipeRow recipe={website.graph?.recipe} />
-            </Link>
-          ) : null
-        })}
+        {websites.map((website) => (
+          <Link to={`/library/${website.id}`} key={website.id}>
+            <RecipeRow recipe={website.graph?.recipe!} />
+          </Link>
+        ))}
       </VStack>
     </MainLayout>
   )
