@@ -5,6 +5,8 @@ import { useLibrary } from '../hooks'
 import { Link } from '../components/Link'
 import { RecipeRow } from '../components/Recipe'
 
+export { LibraryHeader } from './LibraryHeader'
+
 export const Library = () => {
   const dividerColor = useColorModeValue('gray.200', 'gray.800')
   const { library } = useLibrary()

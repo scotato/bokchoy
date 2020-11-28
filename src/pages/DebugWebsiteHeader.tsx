@@ -9,7 +9,7 @@ export const DebugWebsiteHeader = () => {
   return (
     <Header
       title="Debug Recipe"
-      primary={<BackButton to="/debug" />}
+      primary={<BackButton to="/settings/debug" />}
       secondary={
         <HStack>
           <SaveRecipe />

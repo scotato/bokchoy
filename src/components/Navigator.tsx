@@ -1,7 +1,6 @@
 import * as React from 'react'
 import { Flex, FlexProps, Stack, useColorModeValue } from '@chakra-ui/react'
-import { CopyIcon, InfoIcon } from '@chakra-ui/icons'
-import { ColorModeSwitcher } from '../components/ColorModeSwitcher'
+import { CopyIcon, SettingsIcon } from '@chakra-ui/icons'
 import { NavLinkButton, NavLinkButtonProps } from '../components/LinkButton'
 import { useTemplate } from '../hooks'
 
@@ -42,12 +41,11 @@ export const Navigator = (props: FlexProps) => {
           children="Library"
         />
         <NavigatorButton
-          to="/debug"
-          leftIcon={<InfoIcon color="blue.500" height={24} />}
-          children="Debug"
+          to="/settings"
+          leftIcon={<SettingsIcon color="blue.500" height={24} />}
+          children="Settings"
         />
       </Stack>
-      <ColorModeSwitcher alignSelf="center" />
     </Flex>
   )
 }

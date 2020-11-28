@@ -7,6 +7,8 @@ import { RecipeRow } from '../components/Recipe'
 import { SaveRecipe } from '../components/SaveRecipe'
 import { DeleteWebsite } from '../components/DeleteWebsite'
 
+export { DebugHeader } from './DebugHeader'
+
 export const Debug = () => {
   const dividerColor = useColorModeValue('gray.200', 'gray.800')
   const { websites } = useWebsites()
@@ -25,7 +27,7 @@ export const Debug = () => {
             alignItems="center"
             key={website.id}
           >
-            <Link to={`/debug/${website.id}`}>
+            <Link to={`/settings/debug/${website.id}`}>
               <RecipeRow recipe={website.graph?.recipe!} />
             </Link>
             <SaveRecipe id={website.id} />

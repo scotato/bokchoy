@@ -4,6 +4,8 @@ import { MainLayout } from '../layouts/MainLayout'
 import { useWebsites } from '../hooks/use-websites'
 import { Recipe as RecipeComponent } from '../components/Recipe'
 
+export { RecipeHeader } from './RecipeHeader'
+
 type RecipeParams = { id: string }
 
 export const Recipe = () => {

@@ -6,6 +6,8 @@ import { useWebsites } from '../hooks/use-websites'
 import { Recipe } from '../components/Recipe'
 import { Card } from '../components/Card'
 
+export { DebugWebsiteHeader } from './DebugWebsiteHeader'
+
 type RecipeParams = { id: string }
 
 export const DebugWebsite = () => {
@@ -14,7 +16,7 @@ export const DebugWebsite = () => {
   const website = websiteById(id)
   const { recipe, webpage } = website?.graph ?? {}
 
-  if (!website) return <Redirect to="/debug" />
+  if (!website) return <Redirect to="/settings/debug" />
 
   return (
     <MainLayout>
