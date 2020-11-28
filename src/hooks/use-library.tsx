@@ -9,8 +9,6 @@ export const useLibrary = () => {
   const library = websites.filter((website) => libraryIds.includes(website.id))
   const isInLibrary = (siteId: string) => libraryIds.find((id) => id === siteId)
 
-  console.log(websites, library, libraryIds)
-
   return {
     library,
     libraryIds,

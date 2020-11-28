@@ -48,11 +48,14 @@ export const useWebsites = () => {
     return websiteUpdated
   }
 
+  const removeWebsite = (id: string) => setWebsites(websites.filter(website => website.id !== id))
+
   return {
     websites,
     websiteById,
     websiteByUrl,
     addWebsite,
+    removeWebsite,
     updateWebsite,
     hashUrl,
   }

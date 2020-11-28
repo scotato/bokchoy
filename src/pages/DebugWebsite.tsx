@@ -1,7 +1,6 @@
 import * as React from 'react'
-import { useParams } from 'react-router-dom'
+import { Redirect, useParams } from 'react-router-dom'
 import { Code, Grid } from '@chakra-ui/react'
-import { WarningIcon } from '@chakra-ui/icons'
 import { MainLayout } from '../layouts/MainLayout'
 import { useWebsites } from '../hooks/use-websites'
 import { Recipe } from '../components/Recipe'
@@ -15,12 +14,7 @@ export const DebugWebsite = () => {
   const website = websiteById(id)
   const { recipe, webpage } = website?.graph ?? {}
 
-  if (!website)
-    return (
-      <MainLayout>
-        <WarningIcon />
-      </MainLayout>
-    )
+  if (!website) return <Redirect to="/debug" />
 
   return (
     <MainLayout>
