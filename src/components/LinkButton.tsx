@@ -8,13 +8,7 @@ export type NavLinkButtonProps = Omit<NavLinkProps, 'isActive'> & ButtonProps
 
 export const LinkButton = (props: LinkButtonProps) => {
   return (
-    <Button
-      as={Link}
-      _hover={{
-        textDecoration: 'none',
-      }}
-      {...props}
-    >
+    <Button as={Link} {...props}>
       {props.children}
     </Button>
   )
@@ -25,14 +19,7 @@ export const NavLinkButton = (props: NavLinkButtonProps) => {
   const isActive = pathname.includes(props.to as string)
 
   return (
-    <Button
-      as={NavLink}
-      isActive={isActive}
-      _hover={{
-        textDecoration: 'none',
-      }}
-      {...props}
-    >
+    <Button as={NavLink} isActive={isActive} {...props}>
       {props.children}
     </Button>
   )

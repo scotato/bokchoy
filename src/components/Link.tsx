@@ -8,9 +8,23 @@ import {
 import { Link as ChakraLink } from '@chakra-ui/react'
 
 export const Link = (props: LinkProps) => (
-  <ChakraLink as={RouterLink} {...props} />
+  <ChakraLink
+    as={RouterLink}
+    _hover={{
+      textDecoration: 'none',
+    }}
+    {...props}
+  />
 )
 
 export const NavLink = (props: NavLinkProps) => {
-  return <ChakraLink as={RouterNavLink} {...props} />
+  return (
+    <ChakraLink
+      as={RouterNavLink}
+      _hover={{
+        textDecoration: 'none',
+      }}
+      {...props}
+    />
+  )
 }
