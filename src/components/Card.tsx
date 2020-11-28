@@ -10,7 +10,6 @@ export const Card = (props: BoxProps) => {
       overflow="hidden"
       backgroundColor={backgroundColor}
       spacing={0}
-      boxShadow="lg"
       width="100%"
       {...props}
     >

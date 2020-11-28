@@ -24,18 +24,28 @@ export const Settings = () => {
     <MainLayout>
       <VStack
         align="stretch"
-        divider={<StackDivider borderWidth={1} borderColor={dividerColor} />}
         maxWidth="920px"
         m="0 auto"
+        divider={
+          <StackDivider
+            borderWidth={1}
+            borderColor={dividerColor}
+            marginTop={0}
+            marginBottom={0}
+            margin={0}
+          />
+        }
       >
         <Grid
           templateColumns="auto 1fr auto"
           alignItems="center"
           columnGap={4}
-          height={12}
+          p={4}
         >
           <Icon as={FaMoon} color="gray.400" fontSize={24} />
-          <Text fontSize={24}>Dark Mode</Text>
+          <Text fontSize={24} fontWeight="500">
+            Dark Mode
+          </Text>
           <Switch
             size="lg"
             isChecked={colorMode === 'dark'}
@@ -49,10 +59,12 @@ export const Settings = () => {
             templateColumns="auto 1fr auto"
             alignItems="center"
             columnGap={4}
-            height={12}
+            p={4}
           >
             <Icon as={FaBug} color="gray.400" fontSize={24} />
-            <Text fontSize={24}>Debug</Text>
+            <Text fontSize={24} fontWeight="500">
+              Debug
+            </Text>
             <Icon as={FaChevronRight} color="gray.400" fontSize={24} />
           </Grid>
         </Link>
@@ -61,11 +73,13 @@ export const Settings = () => {
           templateColumns="auto 1fr auto"
           alignItems="center"
           columnGap={4}
-          height={12}
+          p={4}
         >
           <Icon as={FaCodeBranch} color="gray.400" fontSize={24} />
-          <Text fontSize={24}>Version</Text>
-          <Text fontSize={24} color="gray.400" fontWeight="700">
+          <Text fontSize={24} fontWeight="500">
+            Version
+          </Text>
+          <Text fontSize={24} color="gray.400" fontWeight="600">
             {version}
           </Text>
         </Grid>
