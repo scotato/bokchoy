@@ -28,7 +28,7 @@ export const AddRecipe = () => {
 
   return (
     <>
-      <Button onClick={onOpen} color="blue.500">
+      <Button onClick={onOpen} fontSize={20} color="blue.500">
         Add Recipe
       </Button>
       <Modal isOpen={isOpen} onClose={onClose}>
