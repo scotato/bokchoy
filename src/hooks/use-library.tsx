@@ -1,22 +1,28 @@
 import createPersistedState from 'use-persisted-state'
+import { useWebsites } from './'
 
 const useLibraryState = createPersistedState('library')
 
 export const useLibrary = () => {
-  const [library, setLibrary] = useLibraryState<WebsiteNode[]>([])
-  const isInLibrary = (id: string) => library.find((entry) => entry.id === id)
+  const { websites } = useWebsites()
+  const [libraryIds, setLibraryIds] = useLibraryState<string[]>([])
+  const library = websites.filter((website) => libraryIds.includes(website.id))
+  const isInLibrary = (siteId: string) => libraryIds.find((id) => id === siteId)
+
+  console.log(websites, library, libraryIds)
 
   return {
     library,
+    libraryIds,
     isInLibrary,
-    addToLibrary(website: WebsiteNode) {
-      if (!isInLibrary(website.id)) {
-        setLibrary([website, ...library])
+    addToLibrary(websiteId: string) {
+      if (!isInLibrary(websiteId)) {
+        setLibraryIds([websiteId, ...libraryIds])
       }
     },
-    removeFromLibrary(website: WebsiteNode) {
-      if (isInLibrary(website.id)) {
-        setLibrary(library.filter((entry) => entry.id !== website.id))
+    removeFromLibrary(websiteId: string) {
+      if (isInLibrary(websiteId)) {
+        setLibraryIds(libraryIds.filter((id) => id !== websiteId))
       }
     },
   }

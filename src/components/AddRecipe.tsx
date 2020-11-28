@@ -75,7 +75,7 @@ export const AddRecipe = () => {
               colorScheme="blue"
               children="Add to Library"
               onClick={() => {
-                addToLibrary(data!)
+                addToLibrary(data!.id)
                 onClose()
               }}
             />

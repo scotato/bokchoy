@@ -11,6 +11,7 @@ import { Library } from '../pages/Library'
 import { LibraryHeader } from '../pages/LibraryHeader'
 import { Recipe } from '../pages/Recipe'
 import { Debug } from '../pages/Debug'
+import { DebugWebsite } from '../pages/DebugWebsite'
 import { Header } from './Header'
 
 export const HeaderRoutes = (props: BoxProps) => (
@@ -32,7 +33,7 @@ export const Routes = () => (
       <Route exact path="/library" children={<Library />} />
       <Route exact path="/library/:id" children={<Recipe />} />
       <Route exact path="/debug" children={<Debug />} />
-      <Route exact path="/debug/:id" children={<Debug />} />
+      <Route exact path="/debug/:id" children={<DebugWebsite />} />
       <Route path="*">
         <h1>404</h1>
       </Route>
