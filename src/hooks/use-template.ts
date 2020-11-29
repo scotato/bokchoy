@@ -1,30 +1,32 @@
 import { useMediaQuery } from '@chakra-ui/react'
 
-enum Templates {
+enum TemplateSize {
   large = 'large',
   small = 'small',
 }
 
 export const useTemplate = () => {
   const [isLargerThan768] = useMediaQuery('(min-width: 768px)')
-  const size = isLargerThan768 ? Templates.large : Templates.small
+  const size = isLargerThan768 ? TemplateSize.large : TemplateSize.small
+  const sidebarWidth = '256px'
 
   switch (size) {
-    case Templates.large:
+    case TemplateSize.large:
       return {
         size,
-        columns: '256px 1fr',
-        rows: 'auto 1fr',
+        sidebarWidth,
+        columns: `${sidebarWidth} 1fr`,
+        rows: '74px 1fr',
         areas: `
         "navigator header"
         "navigator body"
       `,
       }
-    case Templates.small:
+    case TemplateSize.small:
       return {
         size,
         columns: '1fr',
-        rows: 'auto 1fr auto',
+        rows: '74px 1fr 74px',
         areas: `
           "header"
           "body"

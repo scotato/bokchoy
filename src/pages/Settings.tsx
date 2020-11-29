@@ -24,8 +24,6 @@ export const Settings = () => {
     <MainLayout>
       <VStack
         align="stretch"
-        maxWidth="920px"
-        m="0 auto"
         divider={
           <StackDivider
             borderWidth={1}
@@ -51,6 +49,7 @@ export const Settings = () => {
             isChecked={colorMode === 'dark'}
             onChange={toggleColorMode}
             transform="scale(1.25)"
+            mr={2}
           />
         </Grid>
 

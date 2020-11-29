@@ -15,10 +15,18 @@ export const Library = () => {
     <MainLayout>
       <VStack
         align="stretch"
-        divider={<StackDivider borderWidth={1} borderColor={dividerColor} />}
+        divider={
+          <StackDivider
+            borderWidth={1}
+            borderColor={dividerColor}
+            marginX={0}
+            marginY={0}
+            margin={0}
+          />
+        }
       >
         {library.map((website) => (
-          <Link to={`/library/${website.id}`} key={website.id}>
+          <Link to={`/library/${website.id}`} px={4} py={3} key={website.id}>
             <RecipeRow recipe={website.graph?.recipe!} />
           </Link>
         ))}

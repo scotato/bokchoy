@@ -18,7 +18,15 @@ export const Debug = () => {
     <MainLayout>
       <VStack
         align="stretch"
-        divider={<StackDivider borderWidth={1} borderColor={dividerColor} />}
+        divider={
+          <StackDivider
+            borderWidth={1}
+            borderColor={dividerColor}
+            marginX={0}
+            marginY={0}
+            margin={0}
+          />
+        }
       >
         {recipes.map((website) => (
           <Grid
@@ -26,6 +34,8 @@ export const Debug = () => {
             columnGap={2}
             alignItems="center"
             key={website.id}
+            px={4}
+            py={3}
           >
             <Link to={`/settings/debug/${website.id}`}>
               <RecipeRow recipe={website.graph?.recipe!} />

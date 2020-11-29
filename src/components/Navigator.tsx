@@ -21,7 +21,6 @@ const NavigatorButton = (props: NavLinkButtonProps) => {
 }
 
 export const Navigator = (props: FlexProps) => {
-  const backgroundColor = useColorModeValue('gray.200', 'gray.800')
   const { size } = useTemplate()
   const stackDirection = size === 'large' ? 'column' : 'row'
 
@@ -29,7 +28,6 @@ export const Navigator = (props: FlexProps) => {
     <Flex
       justifyContent="space-between"
       flexDirection="column"
-      bg={backgroundColor}
       paddingX={4}
       paddingY={8}
       {...props}

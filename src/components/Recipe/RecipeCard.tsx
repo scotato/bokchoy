@@ -1,5 +1,6 @@
 import * as React from 'react'
 import {
+  Box,
   VStack,
   Heading,
   Image,
@@ -8,7 +9,7 @@ import {
   AspectRatio,
   useColorModeValue,
 } from '@chakra-ui/react'
-import { Card } from '../Card'
+// import { Card } from '../Card'
 
 interface RecipeIngredientProps {
   title?: string
@@ -22,7 +23,7 @@ export const RecipeCard = (props: RecipeIngredientProps) => {
   const { title, subtitle, image } = props
 
   return (
-    <Card>
+    <Box width="100%">
       {image ? (
         <AspectRatio ratio={16 / 9} width="100%">
           <Image
@@ -31,17 +32,24 @@ export const RecipeCard = (props: RecipeIngredientProps) => {
             src={image}
             alt="thumbnail"
             fallback={<Skeleton />}
+            width="100%"
           />
         </AspectRatio>
       ) : null}
 
-      <VStack py={6} px={8} spacing={2} alignItems="start">
+      <VStack
+        px={12}
+        paddingTop={8}
+        paddingBottom={4}
+        spacing={2}
+        alignItems="start"
+      >
         <Heading fontWeight="bold" children={title} />
         {subtitle ? (
           <Text color={color} fontSize={20} children={subtitle} />
         ) : null}
         {props.children}
       </VStack>
-    </Card>
+    </Box>
   )
 }

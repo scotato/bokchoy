@@ -20,7 +20,9 @@ export const Header = (props: HeaderProps) => {
       borderBottomWidth={2}
     >
       <Box children={props.primary} justifySelf="flex-start" />
-      <Heading fontSize={20}>{props.title}</Heading>
+      <Heading fontSize={20} fontWeight="600">
+        {props.title}
+      </Heading>
       <Box children={props.secondary} justifySelf="flex-end" />
     </Grid>
   )

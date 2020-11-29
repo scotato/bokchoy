@@ -34,7 +34,7 @@ export const Recipe = (props: RecipeProps) => {
   const subtitle = descriptionRecipe || headlineRecipe || descriptionWebpage
 
   return (
-    <VStack alignItems="flex-start" spacing={8}>
+    <VStack alignItems="flex-start" width="100%">
       <RecipeCard title={title} subtitle={subtitle} image={image}>
         <RecipeDetails
           datePublished={recipe.datePublished as string}
