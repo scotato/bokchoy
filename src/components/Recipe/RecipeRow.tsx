@@ -25,7 +25,7 @@ export const RecipeRow = (props: RecipeRowProps) => {
         src={image}
         alt="thumbnail"
         fallback={<Skeleton width={16} height={16} />}
-        borderRadius={8}
+        borderRadius={16}
       />
 
       <VStack spacing={2} alignItems="start">

@@ -1,9 +1,26 @@
 import * as React from 'react'
-import { IconButton, Input, useToast } from '@chakra-ui/react'
-import { FaFileImport } from 'react-icons/fa'
-import { useWebsites, useLibrary } from '../../hooks'
+import { Input, useToast } from '@chakra-ui/react'
+import { useWebsites, useLibrary } from './'
 
-export const RecipeImport = () => {
+export const useExport = () => {
+  const { websites } = useWebsites()
+  const { libraryIds } = useLibrary()
+  const data = JSON.stringify({ websites, libraryIds })
+  const dataEncoded = encodeURIComponent(data)
+  const href = `data:application/json;charset=utf-8,${dataEncoded}`
+  const download = `bokchoy-export-${dateFormatted()}.json`
+
+  return { href, download }
+}
+
+function dateFormatted() {
+  const now = new Date()
+  const date = now.toLocaleDateString().split('/').join('-')
+  const time = now.getTime()
+  return `${date}-${time}`
+}
+
+export const useImport = () => {
   const ref = React.useRef<HTMLInputElement>(null)
   const toast = useToast()
   const { addWebsites } = useWebsites()
@@ -61,8 +78,9 @@ export const RecipeImport = () => {
     }
   }
 
-  return (
-    <>
+  return {
+    importRecipes: () => ref.current?.click(),
+    ImportInput: () => (
       <Input
         type="file"
         accept="application/json"
@@ -70,13 +88,6 @@ export const RecipeImport = () => {
         onChange={readFile}
         ref={ref}
       />
-      <IconButton
-        aria-label="Import App Data"
-        icon={<FaFileImport />}
-        onClick={() => ref.current?.click()}
-        color="blue.500"
-        fontSize={20}
-      />
-    </>
-  )
+    ),
+  }
 }

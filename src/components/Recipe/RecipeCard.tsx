@@ -9,7 +9,6 @@ import {
   AspectRatio,
   useColorModeValue,
 } from '@chakra-ui/react'
-// import { Card } from '../Card'
 
 interface RecipeIngredientProps {
   title?: string
