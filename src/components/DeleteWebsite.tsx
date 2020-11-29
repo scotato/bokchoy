@@ -1,6 +1,7 @@
 import * as React from 'react'
 import { useParams } from 'react-router-dom'
 import {
+  Text,
   Button,
   Modal,
   ModalOverlay,
@@ -40,12 +41,17 @@ export const DeleteWebsite = (props: RecipeProps) => {
         <ModalContent>
           <ModalHeader>Delete Recipe</ModalHeader>
           <ModalCloseButton />
-          <ModalBody>{recipe && <RecipeRow recipe={recipe} />}</ModalBody>
+          <ModalBody>
+            {recipe ? (
+              <RecipeRow recipe={recipe} />
+            ) : (
+              <Text>{website?.url}</Text>
+            )}
+          </ModalBody>
 
           <ModalFooter>
             <Button
               mr={3}
-              disabled={!recipe}
               colorScheme="red"
               bg="red.500"
               children="Delete Recipe"
