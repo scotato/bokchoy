@@ -20,7 +20,7 @@ export const Debug = () => {
   const { websites } = useWebsites()
   const recipes = websites.filter((website) => website?.graph?.recipe)
   const other = websites.filter((website) => !website?.graph?.recipe)
-  console.log(other.length)
+
   return (
     <MainLayout>
       <VStack

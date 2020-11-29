@@ -20,7 +20,7 @@ export const RecipeShare = (props: RecipeProps) => {
 
   const share = () => navigator.share(shareData).catch(console.log)
 
-  return website?.url ? (
+  return website?.url && navigator.share ? (
     <IconButton
       aria-label="Recipe URL"
       onClick={share}
