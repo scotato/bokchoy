@@ -17,10 +17,10 @@ import {
   AlertIcon,
   useColorModeValue,
 } from '@chakra-ui/react'
-import { RecipeRow } from './Recipe'
-import { useWebsite, useLibrary } from '../hooks'
+import { RecipeRow } from '.'
+import { useWebsite, useLibrary } from '../../hooks'
 
-export const AddRecipe = () => {
+export const RecipeAdd = () => {
   const [url, setUrl] = React.useState('')
   const { isOpen, onOpen, onClose } = useDisclosure()
   const { data, error } = useWebsite(url)

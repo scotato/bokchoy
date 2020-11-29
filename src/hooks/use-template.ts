@@ -14,6 +14,7 @@ export const useTemplate = () => {
     case TemplateSize.large:
       return {
         size,
+        isLarge: true,
         sidebarWidth,
         columns: `${sidebarWidth} 1fr`,
         rows: '74px 1fr',
@@ -25,6 +26,8 @@ export const useTemplate = () => {
     case TemplateSize.small:
       return {
         size,
+        isLarge: false,
+        sidebarWidth: 0,
         columns: '1fr',
         rows: '74px 1fr 74px',
         areas: `

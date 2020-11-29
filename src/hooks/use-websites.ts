@@ -1,5 +1,6 @@
 import createPersistedState from 'use-persisted-state'
 import hash from 'hash.js'
+import { useToast } from '@chakra-ui/react'
 
 function hashUrl<UrlHash>(url: string) {
   return hash.sha1().update(url).digest('hex')
@@ -9,6 +10,7 @@ const useWebsitesState = createPersistedState('websites')
 
 export const useWebsites = () => {
   const [websites, setWebsites] = useWebsitesState<WebsiteNode[]>([])
+  const toast = useToast()
 
   const websiteById = (id?: string) => websites.find(website => website.id === id)
   const websiteByUrl = (url?: string) => websites.find(website => website.url === url)
@@ -27,6 +29,30 @@ export const useWebsites = () => {
     setWebsites([...websites, newWebsite])
 
     return newWebsite
+  }
+
+  // used for bulk import
+  const addWebsites = (websitesInput: WebsiteNode[]) => {
+    const websiteIds = websites.map(website => website.id)
+    const websitesNew = websitesInput.filter(website => !websiteIds.includes(website.id))
+    if (websitesNew.length) {
+      setWebsites([...websitesNew, ...websites])
+      toast({
+        title: 'Website Cache Updated',
+        description: `Added ${websitesNew.length} websites`,
+        status: 'success',
+        duration: 3000,
+        isClosable: true,
+      })
+    } else {
+      toast({
+        title: 'Add Websites to Cache',
+        description: `No new websites found`,
+        status: 'warning',
+        duration: 3000,
+        isClosable: true,
+      })
+    }
   }
 
   const updateWebsite = (websiteInput: WebsiteNodeInput) => {
@@ -55,6 +81,7 @@ export const useWebsites = () => {
     websiteById,
     websiteByUrl,
     addWebsite,
+    addWebsites,
     removeWebsite,
     updateWebsite,
     hashUrl,

@@ -47,6 +47,7 @@ export const DeleteWebsite = (props: RecipeProps) => {
               mr={3}
               disabled={!recipe}
               colorScheme="red"
+              bg="red.500"
               children="Delete Recipe"
               onClick={() => {
                 removeFromLibrary(id)
