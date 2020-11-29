@@ -5,13 +5,15 @@ import { NavLinkButton, NavLinkButtonProps } from '../components/LinkButton'
 import { useTemplate } from '../hooks'
 
 const NavigatorButton = (props: NavLinkButtonProps) => {
-  const backgroundColor = useColorModeValue('gray.200', 'gray.800')
+  const { size } = useTemplate()
+  const isLarge = size === 'large'
+  const bg = useColorModeValue('gray.200', 'gray.800')
 
   return (
     <NavLinkButton
       leftIcon={<CopyIcon color="blue.500" height={24} />}
       justifyContent="start"
-      backgroundColor={backgroundColor}
+      backgroundColor={isLarge ? bg : 'transparent'}
       fontSize={20}
       fontWeight={400}
       children={props.children}

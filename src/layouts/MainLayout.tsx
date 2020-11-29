@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Box, Grid, useColorMode, useColorModeValue } from '@chakra-ui/react'
+import { Box, Grid, useColorModeValue } from '@chakra-ui/react'
 import { Navigator } from '../components/Navigator'
 import { HeaderRoutes } from '../components/Routes'
 import { useTemplate } from '../hooks'

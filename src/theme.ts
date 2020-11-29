@@ -10,4 +10,13 @@ export const theme = extendTheme({
       },
     }),
   },
+  components: {
+    Button: {
+      variants: {
+        solid: {
+          bg: "transparent",
+        },
+      },
+    }
+  }
 })

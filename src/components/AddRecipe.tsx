@@ -15,6 +15,7 @@ import {
   Input,
   Alert,
   AlertIcon,
+  useColorModeValue,
 } from '@chakra-ui/react'
 import { RecipeRow } from './Recipe'
 import { useWebsite, useLibrary } from '../hooks'
@@ -25,6 +26,7 @@ export const AddRecipe = () => {
   const { data, error } = useWebsite(url)
   const { addToLibrary } = useLibrary()
   const { recipe } = data?.graph ?? {}
+  const buttonBg = useColorModeValue('blue.500', 'blue.500')
 
   return (
     <>
@@ -46,7 +48,7 @@ export const AddRecipe = () => {
                 value={url}
                 onChange={(e) => setUrl(e.target.value)}
               />
-              <FormHelperText>
+              <FormHelperText mb={4}>
                 Paste a web recipe URL, we'll let you know if we can read the
                 recipe.
               </FormHelperText>
@@ -74,6 +76,7 @@ export const AddRecipe = () => {
               disabled={!recipe}
               colorScheme="blue"
               children="Add to Library"
+              bg={buttonBg}
               onClick={() => {
                 addToLibrary(data!.id)
                 onClose()
