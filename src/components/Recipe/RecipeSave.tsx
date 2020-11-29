@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { useParams } from 'react-router-dom'
 import { IconButton } from '@chakra-ui/react'
-import { DownloadIcon, CheckIcon } from '@chakra-ui/icons'
+import { FaHeart, FaRegHeart } from 'react-icons/fa'
 import { useLibrary } from '../../hooks'
 
 type RecipeProps = { id?: string }
@@ -15,7 +15,7 @@ export const RecipeSave = (props: RecipeProps) => {
     <IconButton
       aria-label="Remove from Library"
       onClick={() => removeFromLibrary(id)}
-      icon={<CheckIcon />}
+      icon={<FaHeart />}
       color="blue.500"
       fontSize={20}
     />
@@ -23,7 +23,7 @@ export const RecipeSave = (props: RecipeProps) => {
     <IconButton
       aria-label="Add to Library"
       onClick={() => addToLibrary(id)}
-      icon={<DownloadIcon />}
+      icon={<FaRegHeart />}
       color="blue.500"
       fontSize={20}
     />
