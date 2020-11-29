@@ -2,11 +2,11 @@ import * as React from 'react'
 import { useParams } from 'react-router-dom'
 import { IconButton } from '@chakra-ui/react'
 import { DownloadIcon, CheckIcon } from '@chakra-ui/icons'
-import { useLibrary } from '../hooks'
+import { useLibrary } from '../../hooks'
 
 type RecipeProps = { id?: string }
 
-export const SaveRecipe = (props: RecipeProps) => {
+export const RecipeSave = (props: RecipeProps) => {
   const { addToLibrary, removeFromLibrary, isInLibrary } = useLibrary()
   const params = useParams<RecipeProps>()
   const id = (props.id || params.id) as string

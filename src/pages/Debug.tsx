@@ -4,7 +4,7 @@ import { MainLayout } from '../layouts/MainLayout'
 import { useWebsites } from '../hooks'
 import { Link } from '../components/Link'
 import { RecipeRow } from '../components/Recipe'
-import { SaveRecipe } from '../components/SaveRecipe'
+import { RecipeSave } from '../components/Recipe'
 import { DeleteWebsite } from '../components/DeleteWebsite'
 
 export { DebugHeader } from './DebugHeader'
@@ -40,7 +40,7 @@ export const Debug = () => {
             <Link to={`/settings/debug/${website.id}`}>
               <RecipeRow recipe={website.graph?.recipe!} />
             </Link>
-            <SaveRecipe id={website.id} />
+            <RecipeSave id={website.id} />
             <DeleteWebsite id={website.id} />
           </Grid>
         ))}

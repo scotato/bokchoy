@@ -2,7 +2,7 @@ import * as React from 'react'
 import { HStack } from '@chakra-ui/react'
 import { Header } from '../components/Header'
 import { BackButton } from '../components/BackButton'
-import { SaveRecipe } from '../components/SaveRecipe'
+import { RecipeSave } from '../components/Recipe'
 import { DeleteWebsite } from '../components/DeleteWebsite'
 
 export const DebugWebsiteHeader = () => {
@@ -12,7 +12,7 @@ export const DebugWebsiteHeader = () => {
       primary={<BackButton to="/settings/debug" />}
       secondary={
         <HStack>
-          <SaveRecipe />
+          <RecipeSave />
           <DeleteWebsite />
         </HStack>
       }
