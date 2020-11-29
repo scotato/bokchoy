@@ -18,13 +18,7 @@ export const RecipeShare = (props: RecipeProps) => {
     url: website?.url,
   }
 
-  const share = async () => {
-    try {
-      await navigator.share(shareData)
-    } catch (err) {
-      console.log('Share Error: ' + err)
-    }
-  }
+  const share = () => navigator.share(shareData).catch(console.log)
 
   return website?.url ? (
     <IconButton
