@@ -60,18 +60,18 @@ export const Settings = () => {
             title="Data Management"
             caption="Recipe data generated from this app can be imported & exported."
           >
-            <a href={href} download={download}>
-              <Row leadingIcon={FaCloudDownloadAlt} text="Export Recipes" />
-            </a>
-
             <Row
               as="button"
               onClick={importRecipes}
               leadingIcon={FaCloudUploadAlt}
               text="Import Recipes"
             />
-            <ImportInput />
+
+            <a href={href} download={download}>
+              <Row leadingIcon={FaCloudDownloadAlt} text="Export Recipes" />
+            </a>
           </Group>
+          <ImportInput />
         </VStack>
       </Page>
     </MainLayout>

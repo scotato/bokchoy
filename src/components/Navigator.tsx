@@ -1,6 +1,12 @@
 import * as React from 'react'
-import { Flex, FlexProps, Stack, useColorModeValue } from '@chakra-ui/react'
-import { CopyIcon, SettingsIcon } from '@chakra-ui/icons'
+import {
+  Icon,
+  Flex,
+  FlexProps,
+  Stack,
+  useColorModeValue,
+} from '@chakra-ui/react'
+import { FaLayerGroup, FaCog } from 'react-icons/fa'
 import { NavLinkButton, NavLinkButtonProps } from '../components/LinkButton'
 import { useTemplate } from '../hooks'
 
@@ -11,7 +17,7 @@ const NavigatorButton = (props: NavLinkButtonProps) => {
 
   return (
     <NavLinkButton
-      leftIcon={<CopyIcon color="blue.500" height={24} />}
+      leftIcon={<Icon as={FaLayerGroup} color="blue.500" height={24} />}
       justifyContent="start"
       backgroundColor={isLarge ? bg : 'transparent'}
       fontSize={20}
@@ -37,12 +43,12 @@ export const Navigator = (props: FlexProps) => {
       <Stack align="stretch" justify="center" direction={stackDirection}>
         <NavigatorButton
           to="/library"
-          leftIcon={<CopyIcon color="blue.500" height={24} />}
+          leftIcon={<Icon as={FaLayerGroup} color="blue.500" height={24} />}
           children="Library"
         />
         <NavigatorButton
           to="/settings"
-          leftIcon={<SettingsIcon color="blue.500" height={24} />}
+          leftIcon={<Icon as={FaCog} color="blue.500" height={24} />}
           children="Settings"
         />
       </Stack>

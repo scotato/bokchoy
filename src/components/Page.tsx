@@ -14,7 +14,7 @@ export const Page = (props: BoxProps) => {
       height="100%"
       {...props}
     >
-      <Box width="100%" maxW="1024px" mx="auto">
+      <Box width="100%" height="100%" maxW="1024px" mx="auto">
         {props.children}
       </Box>
     </Box>

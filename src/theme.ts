@@ -15,6 +15,7 @@ export const theme = extendTheme({
       variants: {
         solid: {
           bg: "transparent",
+          borderRadius: 12
         },
       },
     }

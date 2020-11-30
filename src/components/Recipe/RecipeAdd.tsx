@@ -1,6 +1,7 @@
 import * as React from 'react'
 import {
   Button,
+  ButtonProps,
   Modal,
   ModalOverlay,
   ModalContent,
@@ -20,22 +21,26 @@ import {
 import { RecipeRow } from '.'
 import { useWebsite, useLibrary } from '../../hooks'
 
-export const RecipeAdd = () => {
+export const RecipeAdd = (props: ButtonProps) => {
   const [url, setUrl] = React.useState('')
   const { isOpen, onOpen, onClose } = useDisclosure()
-  const { data, error } = useWebsite(url)
+  const { data, loading, error } = useWebsite(url)
   const { addToLibrary } = useLibrary()
   const { recipe } = data?.graph ?? {}
   const buttonBg = useColorModeValue('blue.500', 'blue.500')
 
   return (
     <>
-      <Button onClick={onOpen} fontSize={20} color="blue.500">
-        Add Recipe
-      </Button>
+      <Button
+        onClick={onOpen}
+        fontSize={20}
+        color="blue.500"
+        children="Add Recipe"
+        {...props}
+      />
       <Modal isOpen={isOpen} onClose={onClose}>
         <ModalOverlay />
-        <ModalContent>
+        <ModalContent maxW="90%" width="768px" my="auto">
           <ModalHeader>Add Recipe</ModalHeader>
           <ModalCloseButton />
           <ModalBody>
@@ -54,7 +59,7 @@ export const RecipeAdd = () => {
               </FormHelperText>
             </FormControl>
 
-            {error && (
+            {!loading && error && (
               <Alert status="error">
                 <AlertIcon />
                 There was an error processing your request
