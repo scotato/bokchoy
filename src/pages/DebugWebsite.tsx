@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { Redirect, useParams } from 'react-router-dom'
-import { Code, Grid } from '@chakra-ui/react'
+import { Code } from '@chakra-ui/react'
 import { MainLayout } from '../layouts/MainLayout'
 import { useWebsites } from '../hooks/use-websites'
 import { Recipe } from '../components/Recipe'
