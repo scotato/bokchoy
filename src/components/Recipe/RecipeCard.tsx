@@ -9,6 +9,7 @@ import {
   AspectRatio,
   useColorModeValue,
 } from '@chakra-ui/react'
+import { useTemplate } from '../../hooks'
 
 interface RecipeIngredientProps {
   title?: string
@@ -19,6 +20,7 @@ interface RecipeIngredientProps {
 
 export const RecipeCard = (props: RecipeIngredientProps) => {
   const color = useColorModeValue('gray.600', 'gray.400')
+  const { isLarge } = useTemplate()
   const { title, subtitle, image } = props
 
   return (
@@ -37,7 +39,7 @@ export const RecipeCard = (props: RecipeIngredientProps) => {
       ) : null}
 
       <VStack
-        px={12}
+        px={isLarge ? 12 : 6}
         paddingTop={8}
         paddingBottom={4}
         spacing={2}

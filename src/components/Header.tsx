@@ -1,5 +1,6 @@
 import * as React from 'react'
 import { Box, Grid, Heading, useColorModeValue } from '@chakra-ui/react'
+import { useTemplate } from '../hooks'
 
 interface HeaderProps {
   title: string
@@ -9,10 +10,11 @@ interface HeaderProps {
 
 export const Header = (props: HeaderProps) => {
   const borderColor = useColorModeValue('gray.200', 'gray.800')
+  const { isLarge } = useTemplate()
 
   return (
     <Grid
-      paddingX={8}
+      paddingX={isLarge ? 8 : 4}
       paddingY={4}
       placeItems="center"
       templateColumns="1fr 1fr 1fr"
