@@ -32,7 +32,7 @@ export const Group = (props: GroupProps & BoxProps) => {
         width="100%"
         divider={<Divider />}
         backgroundColor={backgroundColor}
-        borderRadius={isLarge ? 24 : 0}
+        borderRadius={isLarge ? 20 : 0}
         spacing={0}
       >
         {children}

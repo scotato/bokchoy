@@ -37,9 +37,7 @@ export const Settings = () => {
                   size="lg"
                   isChecked={colorMode === 'dark'}
                   onChange={toggleColorMode}
-                  transform="scale(1.25)"
                   colorScheme="green"
-                  mr={2}
                 />
               }
             />

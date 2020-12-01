@@ -22,16 +22,16 @@ export const Row = (props: RowProps & GridProps) => {
       templateColumns={columns}
       justifyItems="flex-start"
       alignItems="center"
-      columnGap={4}
-      py={4}
-      px={6}
+      columnGap={3}
+      py={3}
+      px={4}
       {...gridProps}
     >
-      {leadingIcon && <Icon as={leadingIcon} color="gray.400" fontSize={24} />}
-      <Text fontSize={24} fontWeight="500" children={text} />
+      {leadingIcon && <Icon as={leadingIcon} color="gray.400" fontSize={20} />}
+      <Text fontSize={20} fontWeight="500" children={text} />
       {detail && (
         <Text
-          fontSize={24}
+          fontSize={20}
           fontWeight="600"
           color="gray.400"
           children={detail}
@@ -42,7 +42,7 @@ export const Row = (props: RowProps & GridProps) => {
           as={trailingIcon}
           color="gray.400"
           fontWeight="600"
-          fontSize={24}
+          fontSize={20}
         />
       )}
     </Grid>

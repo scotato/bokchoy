@@ -19,17 +19,17 @@ export const RecipeRow = (props: RecipeRowProps) => {
       <Image
         objectPosition="center"
         objectFit="cover"
-        boxSize={16}
-        width={16}
-        height={16}
+        boxSize={12}
+        width={12}
+        height={12}
         src={image}
         alt="thumbnail"
-        fallback={<Skeleton width={16} height={16} />}
-        borderRadius={16}
+        fallback={<Skeleton width={12} height={12} />}
+        borderRadius={12}
       />
 
       <VStack spacing={2} alignItems="start">
-        <Text fontSize={24} lineHeight="1.2" children={title} />
+        <Text fontSize={20} lineHeight="1.2" children={title} />
       </VStack>
     </HStack>
   )

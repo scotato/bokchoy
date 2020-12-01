@@ -17,7 +17,7 @@ export const useTemplate = () => {
         isLarge: true,
         sidebarWidth,
         columns: `${sidebarWidth} 1fr`,
-        rows: '74px 1fr',
+        rows: '70px 1fr',
         areas: `
         "navigator header"
         "navigator body"
@@ -29,7 +29,7 @@ export const useTemplate = () => {
         isLarge: false,
         sidebarWidth: 0,
         columns: '1fr',
-        rows: '74px 1fr 74px',
+        rows: '70px 1fr 70px',
         areas: `
           "header"
           "body"

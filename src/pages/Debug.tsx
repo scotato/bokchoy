@@ -36,8 +36,8 @@ export const Debug = () => {
                   columnGap={2}
                   alignItems="center"
                   key={website.id}
-                  px={4}
-                  py={4}
+                  px={3}
+                  py={3}
                 >
                   <Link to={`/settings/debug/${website.id}`}>
                     <RecipeRow recipe={website.graph?.recipe!} />
@@ -57,7 +57,7 @@ export const Debug = () => {
                   columnGap={2}
                   alignItems="center"
                   key={website.id}
-                  px={4}
+                  px={3}
                   py={3}
                 >
                   <Link to={`/settings/debug/${website.id}`}>

@@ -53,8 +53,8 @@ export const Library = () => {
             {library.map((website) => (
               <Link
                 to={`/library/${website.id}`}
-                px={4}
-                py={4}
+                px={3}
+                py={3}
                 key={website.id}
               >
                 <RecipeRow recipe={website.graph?.recipe!} />
