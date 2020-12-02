@@ -3,12 +3,11 @@ import {
   Box,
   VStack,
   Heading,
-  Image,
   Text,
-  Skeleton,
   AspectRatio,
   useColorModeValue,
 } from '@chakra-ui/react'
+import { Image } from '../Image'
 import { useTemplate } from '../../hooks'
 
 interface RecipeIngredientProps {
@@ -24,17 +23,10 @@ export const RecipeCard = (props: RecipeIngredientProps) => {
   const { title, subtitle, image } = props
 
   return (
-    <Box width="100%">
+    <Box>
       {image ? (
-        <AspectRatio ratio={16 / 9} width="100%">
-          <Image
-            objectPosition="center"
-            objectFit="cover"
-            src={image}
-            alt="thumbnail"
-            fallback={<Skeleton />}
-            width="100%"
-          />
+        <AspectRatio ratio={16 / 9}>
+          <Image src={image} />
         </AspectRatio>
       ) : null}
 
