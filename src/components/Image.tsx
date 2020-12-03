@@ -1,6 +1,7 @@
 import * as React from 'react'
 import {
   Grid,
+  GridProps,
   Image as ChakraImage,
   ImageProps,
   Icon,
@@ -32,6 +33,7 @@ export const Image = (props: ImageProps) => {
           alignContent="center"
           templateColumns="1fr"
           templateRows="1fr"
+          {...(props as GridProps)}
         >
           <Icon as={FaLayerGroup} width="50%" height="50%" />
         </Grid>
