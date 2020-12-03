@@ -37,7 +37,7 @@ export const RecipeRow = (props: RecipeRowProps) => {
 
   return (
     <HStack p={0} spacing={4}>
-      <Image src={image} boxSize={12} borderRadius={12} />
+      <Image src={image} boxSize={12} borderRadius={12} width={12} />
 
       <VStack spacing={1} alignItems="start">
         <Text fontSize={20} lineHeight="1.2" children={title} />

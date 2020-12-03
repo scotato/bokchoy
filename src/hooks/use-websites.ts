@@ -76,12 +76,15 @@ export const useWebsites = () => {
 
   const removeWebsite = (id: string) => setWebsites(websites.filter(website => website.id !== id))
 
+  const removeAllWebsites = () => setWebsites([])
+
   return {
     websites,
     websiteById,
     websiteByUrl,
     addWebsite,
     addWebsites,
+    removeAllWebsites,
     removeWebsite,
     updateWebsite,
     hashUrl,

@@ -14,12 +14,12 @@ import {
   IconButton,
 } from '@chakra-ui/react'
 import { DeleteIcon } from '@chakra-ui/icons'
-import { RecipeRow } from './Recipe'
-import { useWebsites, useLibrary } from '../hooks'
+import { RecipeRow } from '.'
+import { useWebsites, useLibrary } from '../../hooks'
 
 type RecipeProps = { id?: string }
 
-export const DeleteWebsite = (props: RecipeProps) => {
+export const RecipeRemove = (props: RecipeProps) => {
   const params = useParams<RecipeProps>()
   const id = (props.id || params.id) as string
   const { isOpen, onOpen, onClose } = useDisclosure()

@@ -47,5 +47,8 @@ export const useLibrary = () => {
         setLibraryIds(libraryIds.filter((id) => id !== websiteId))
       }
     },
+    removeAllFromLibrary() {
+      setLibraryIds([])
+    },
   }
 }

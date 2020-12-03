@@ -5,10 +5,12 @@ import { useWebsites, useLibrary } from '../hooks'
 import { Link } from '../components/Link'
 import { RecipeRow } from '../components/Recipe'
 import { RecipeSave } from '../components/Recipe'
-import { DeleteWebsite } from '../components/DeleteWebsite'
+import { RecipeRemove } from '../components/Recipe/RecipeRemove'
+import { RecipeRemoveAll } from '../components/Recipe/RecipeRemoveAll'
 import { Page } from '../components/Page'
 import { Group } from '../components/Group'
 import { Divider } from '../components/Divider'
+import { DebugEmpty } from './DebugEmpty'
 
 export { DebugHeader } from './DebugHeader'
 
@@ -23,8 +25,9 @@ export const Debug = () => {
   const recipesCached = recipes.filter(
     (website) => !libraryIds.includes(website.id)
   )
+  const hasData = websites.length || libraryIds.length
 
-  return (
+  return hasData ? (
     <MainLayout>
       <Page>
         <VStack spacing={4} align="stretch">
@@ -43,7 +46,7 @@ export const Debug = () => {
                     <RecipeRow recipe={website.graph?.recipe!} />
                   </Link>
                   <RecipeSave id={website.id} />
-                  <DeleteWebsite id={website.id} />
+                  <RecipeRemove id={website.id} />
                 </Grid>
               ))}
             </VStack>
@@ -64,7 +67,7 @@ export const Debug = () => {
                     <RecipeRow recipe={website.graph?.recipe!} />
                   </Link>
                   <RecipeSave id={website.id} />
-                  <DeleteWebsite id={website.id} />
+                  <RecipeRemove id={website.id} />
                 </Grid>
               ))}
             </VStack>
@@ -85,14 +88,18 @@ export const Debug = () => {
                     <Link to={`/settings/debug/${website.id}`}>
                       <Text>{website.url}</Text>
                     </Link>
-                    <DeleteWebsite id={website.id} />
+                    <RecipeRemove id={website.id} />
                   </Grid>
                 ))}
               </VStack>
             </Group>
           ) : null}
+
+          <RecipeRemoveAll />
         </VStack>
       </Page>
     </MainLayout>
+  ) : (
+    <DebugEmpty />
   )
 }
