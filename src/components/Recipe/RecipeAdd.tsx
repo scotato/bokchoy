@@ -18,8 +18,14 @@ import {
   AlertIcon,
   useColorModeValue,
 } from '@chakra-ui/react'
+import { Recipe } from 'schema-dts'
 import { RecipeRow } from '.'
 import { useWebsite, useLibrary } from '../../hooks'
+
+const isPaymentRequired = (recipe?: Recipe) => {
+  if (recipe?.isAccessibleForFree === false) return true
+  if (recipe?.isAccessibleForFree === 'False') return true
+}
 
 export const RecipeAdd = (props: ButtonProps) => {
   const [url, setUrl] = React.useState('')
@@ -28,6 +34,7 @@ export const RecipeAdd = (props: ButtonProps) => {
   const { addToLibrary } = useLibrary()
   const { recipe } = data?.graph ?? {}
   const buttonBg = useColorModeValue('blue.500', 'blue.500')
+  const paymentRequired = isPaymentRequired(recipe)
 
   return (
     <>
@@ -67,6 +74,15 @@ export const RecipeAdd = (props: ButtonProps) => {
             )}
 
             {recipe && <RecipeRow recipe={recipe} />}
+
+            {paymentRequired && (
+              <Alert status="warning" mt={3}>
+                <AlertIcon />
+                This recipe is not accessible for free, paid recipes are not
+                supported at this time.
+              </Alert>
+            )}
+
             {url && !recipe && !error && (
               <Alert status="error">
                 <AlertIcon />
@@ -78,7 +94,7 @@ export const RecipeAdd = (props: ButtonProps) => {
           <ModalFooter>
             <Button
               mr={3}
-              disabled={!recipe}
+              disabled={!recipe || paymentRequired}
               colorScheme="blue"
               children="Add to Library"
               bg={buttonBg}
